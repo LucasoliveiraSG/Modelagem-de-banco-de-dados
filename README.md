@@ -1,2 +1,4 @@
-# Modelagem-de-banco-de-dados
-participantes
+# PARTICIPANTES
+Carolina Ayumi 
+Lucas
+
