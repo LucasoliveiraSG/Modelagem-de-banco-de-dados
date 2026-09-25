@@ -14,13 +14,13 @@
 ## Metadados
 
 - **Nomes dos alunos e RGM**
-- Carolina Ayumi Kawakami Faria
+- Carolina Ayumi Kawakami Faria - RGM: 47927470
 
-- Lucas Oliveira da Silva 
+- Lucas Oliveira da Silva - RGM: 48323667
 
-- Lucas Silva de Morais 
+- Lucas Silva de Morais - RGM: 48040843
 
-- Vitória Christini dos Santos
+- Alex Christini dos Santos - RGM: 47919833
 
 
 ## 1. Caracterização da Organização
