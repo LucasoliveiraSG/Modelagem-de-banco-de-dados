@@ -14,6 +14,14 @@
 ## Metadados
 
 - **Nomes dos alunos e RGM**
+- Carolina Ayumi Kawakami Faria
+
+- Lucas Oliveira da Silva 
+
+- Lucas Silva de Morais 
+
+- Vitória Christini dos Santos
+
 
 ## 1. Caracterização da Organização
 *(vale 7,5% — Dimensão Conceitual)*
