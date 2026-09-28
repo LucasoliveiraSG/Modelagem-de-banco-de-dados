@@ -39,6 +39,7 @@
   (11) 91858-4285
   - **Instagram:**  https://www.instagram.com/padarialusitano/
   - **Registros da visita:**
+  - <img width="1600" height="1200" alt="Image" src="https://github.com/user-attachments/assets/87c7f6da-d2e8-4344-928c-506bfa7a1d4f" />
 
 
 
