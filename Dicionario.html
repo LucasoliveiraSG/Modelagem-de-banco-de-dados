@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            margin-top: 6rem;
+            margin-left: 8px;
+            margin-right: 8px;
+            padding: 0px;
+        }
+        nav{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 4rem;
+            border-bottom: 2px solid rgb(124, 124, 124);
+            background-color: bisque;
+        }
+        nav, ul{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            list-style-type: none;
+            height: 5rem;
+            margin: 0px;
+            padding: 0px;
+        }
+        a {
+            margin: 0px 20px 0px 0px;
+            padding: 0px 10px 10px 0px;
+            text-decoration: none;
+            font-size:  1.5rem;
+            color: black;
+            position: relative;
+        }
+        a::after{
+            content: " ";
+            width: 0%;
+            height: 4px;
+            background-color: black;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: 0.5s ease-in-out;
+        }
+        li, a:hover::after{
+            width: 100%;
+
+        }
+        header{
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+        }
+        .Topo{
+            padding: 20px 10px 15px 20px;
+            border: 2px solid rgb(124, 124, 124);
+            border-bottom: 2px solid rgb(124, 124, 124);
+            background-color: bisque;
+            border-radius: 10px 10px 0px 0px;
+            border-left: 3px solid black;
+            width: 100vh;
+        }
+        h3, p{
+            margin-left: 0.5rem;
+            text-align: left;
+        }
+        table {
+            width: 100vh;
+            border: 2px solid rgb(124, 124, 124);
+            border-top: 0px;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+            margin-top: 0px;
+            border-left: 3px solid black;
+            border-radius: 0px 0px 10px 10px;
+        }
+        td, th {
+            text-align: left;
+            border-bottom: 2px solid rgb(124, 124, 124);
+            padding: 12px;
+            text-align: left;
+            border-radius: 0px 0px 10px 10px;
+            height: 30px;
+        }
+        tr, td {
+            padding: 12px;
+            text-align: left;
+            margin: 0px;
+            height: 30px;
+        }
+        code {
+            font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+            font-size: 0.9em;
+            background: #F3EFF6;
+            padding: 0.1rem 0.35rem;
+            border-radius: 4px;
+            border: 2px groove #e1d7e7;
+            box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 #e1d7e7;
+        }
+        code:hover {
+            background: #E1D7E7;
+            border: 2px groove #e1d7e7;
+            box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 #e1d7e7;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <a href="#Cliente"><li>Cliente</li></a>
+            <a href="#Endereço"><li>Endereço</li></a>
+            <a href="#Pedido"><li>Pedido</li></a>
+            <a href="#Produto"><li>Produto</li></a>
+            <a href="#Categoria"><li>Categoria</li></a>
+            <a href="#Compra"><li>Compra</li></a>
+        </ul>
+    </nav>
+    
+    <main>
+    <header>
+        <h1>Dicionario de dados - Padaria Luisitano</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio repellat culpa suscipit ab fuga recusandae voluptatibus voluptatem perferendis a animi tempora nihil quia et quas tempore architecto, perspiciatis amet ipsum.</p>
+        <h4>Lucas Oliveira, Carolina Ayumi, Vitoria christini, Lucas Morais</h4>
+    </header>
+
+    <div class="Topo">
+    <h3 id="Cliente">Tabela: Cliente</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    </div>
+    <div class="TableStyle">
+    <table>
+        <thead>
+            <tr>
+                <th>Variável</th>
+                <th>Nome variável</th>
+                <th>Tipo variável</th>
+                <th>Descrição</th>
+                <th>Valores permitidos</th>
+                <th>Possui valores nulos?</th>
+                <th>Anotações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>Id do cliente</code></td><td><code>id_cliente</code></td><td><code>Integer</code></td><td><code>Número de identificação</code></td><td><code>001-999</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Nome do cliente</code></td><td><code>nome</code></td><td><code>String</code></td><td><code>Nome do cliente</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Telefone</code></td><td><code>telefone</code></td><td><code>String</code></td><td><code>Número de telefone do cliente</code></td><td><code>11</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Endereço</code></td><td><code>id_endereço</code></td><td><code>Integer</code></td><td><code>ID do endereço do cliente</code></td><td><code>0001-999</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>CPF</code></td><td><code>CPF</code></td><td><code>Integer</code></td><td><code>CPF do cliente</code></td><td><code>11</code></td><td><code>Não</code></td><td><code></code></td></tr>
+        </tbody>
+    </table>
+    </div>
+    <div class="Topo">
+    <h3 id="Endereço">Tabela: Endereço</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    </div>
+    
+    <div class="TableStyle">
+    <table>
+        <thead>
+            <tr>
+                <th>Variável</th>
+                <th>Nome variável</th>
+                <th>Tipo variável</th>
+                <th>Descrição</th>
+                <th>Valores permitidos</th>
+                <th>Possui valores nulos?</th>
+                <th>Anotações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>Bairro</code></td><td><code>bairro</code></td><td><code>String</code></td><td><code>Bairro onde o cliente reside</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>CEP</code></td><td><code>cep</code></td><td><code>Integer</code></td><td><code>Código de Endereçamento Postal do cliente</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Cidade</code></td><td><code>cidade</code></td><td><code>String</code></td><td><code>Cidade onde o cliente reside</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="Topo">
+    <h3 id="Produto">Tabela: Produto</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    </div>
+    <div class="TableStyle">
+    <table>
+        <thead>
+            <tr>
+                <th>Variável</th>
+                <th>Nome variável</th>
+                <th>Tipo variável</th>
+                <th>Descrição</th>
+                <th>Valores permitidos</th>
+                <th>Possui valores nulos?</th>
+                <th>Anotações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>Nome do produto</code></td><td><code>nome_produto</code></td><td><code>Integer</code></td><td><code>Nome do produto</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Preço</code></td><td><code>preço</code></td><td><code>Float</code></td><td><code>Preço do produto</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Quantidade</code></td><td><code>quantidade</code></td><td><code>Integer</code></td><td><code>Quantidade do produto pedido</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="Topo">
+    <h3 id="Pedido">Tabela: Pedido</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    </div>
+
+    <div class="TableStyle">
+    <table>
+        <thead>
+            <tr>
+                <th>Variável</th>
+                <th>Nome variável</th>
+                <th>Tipo variável</th>
+                <th>Descrição</th>
+                <th>Valores permitidos</th>
+                <th>Possui valores nulos?</th>
+                <th>Anotações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>Id do pedido</code></td><td><code>id_pedido</code></td><td><code>Integer</code></td><td><code>Número de identificação do pedido</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Horário</code></td><td><code>horario</code></td><td><code>Time</code></td><td><code>Horário em que o pedido foi feito</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="Topo">
+    <h3 id="Categoria">Tabela: Categoria</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    </div>
+
+    <div class="TableStyle">
+    <table>
+        <thead>
+            <tr>
+                <th>Variável</th>
+                <th>Nome variável</th>
+                <th>Tipo variável</th>
+                <th>Descrição</th>
+                <th>Valores permitidos</th>
+                <th>Possui valores nulos?</th>
+                <th>Anotações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>Categoria do produto</code></td><td><code>categoria_produto</code></td><td><code>String</code></td><td><code>Categoria que o produto está</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Descrição</code></td><td><code>descrição</code></td><td><code>Text</code></td><td><code>Descrição da categoria</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="Topo">
+    <h3 id="Compra">Tabela: Compra</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    </div>
+
+    <div class="TableStyle">
+    <table>
+        <thead>
+            <tr>
+                <th>Variável</th>
+                <th>Nome variável</th>
+                <th>Tipo variável</th>
+                <th>Descrição</th>
+                <th>Valores permitidos</th>
+                <th>Possui valores nulos?</th>
+                <th>Anotações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>Id da compra</code></td><td><code>id_compra</code></td><td><code>Integer</code></td><td><code>Número de identificação da compra</code></td><td><code>100</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Data da compra</code></td><td><code>data_compra</code></td><td><code>Date</code></td><td><code>Data em que a compra foi feita</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Número do cartão</code></td><td><code>numero cartao</code></td><td><code>Integer</code></td><td><code>Número do cartão usado na compra</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Vencimento do Cartão</code></td><td><code>venc_cartao</code></td><td><code>Integer</code></td><td><code>Vencimento do cartão usado na compra</code></td><td><code>40</code></td><td><code>Sim</code></td><td><code></code></td></tr>
+            <tr><td><code>Nome do cartão</code></td><td><code>nome cartao</code></td><td><code>Text</code></td><td><code>Nome do dono do cartão</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>Código de segurança do cartão</code></td><td><code>codseg_cartao</code></td><td><code>Integer</code></td><td><code>Código de segurança no cartão</code></td><td><code>40</code></td><td><code>Sim</code></td><td><code></code></td></tr>
+            <tr><td><code>Tipo do cartão</code></td><td><code>tipo_cartao</code></td><td><code>Text</code></td><td><code>Tipo do cartão do cliente</code></td><td><code>40</code></td><td><code>Sim</code></td><td><code></code></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    </main>
+    
+    <footer></footer>
+</body>
+</html>
