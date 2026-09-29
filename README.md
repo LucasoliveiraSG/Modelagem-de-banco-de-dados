@@ -27,8 +27,8 @@
 
 
 - **Nome e natureza da organização:**
-  Padaria Forno Lusitano
-- **Contexto e porte:** Organização com fins lucrativos, de médio porte 
+  Padaria Forno Lusitano, organização com fins lucrativos.
+- **Contexto e porte:** Organização com fins lucrativos, de médio porte, recebe diariamente em torno de 500 clientes onde 350 consumem algo do estabelecimento.
 - **Problemas e necessidades identificados:** *qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros, etc.)?*
 - **Justificativa da escolha:** A padaria forno Lusitano se mostrou extremamente receptiva para a realização da pesquisa de campo, sua estrutura de porte médio é de tamanho ideal para a realização da modelagem de banco de dados. O responsável pelo estabelecimento, Severino, concordou em participar da entrevista pessoalmente e permitiu que o grupo coletasse as informações necessárias para fins acadêmicos. 
 - **Evidências da organização:** 
@@ -53,13 +53,22 @@
 ---
 
 ## 3. Requisitos do Sistema
-*(esta seção e a Seção 4 "Regras de Negócio" DIVIDEM 7,5% na dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na organização/documentação)*
-
+Nesta seção
 ### 3.1 Requisitos Funcionais
-*O que o sistema precisa FAZER (ex.: "o sistema deve permitir registrar uma venda").*
-
+- **RF01- Cadastrar o cliente:** O sistema deve permitir que haja o cadastro de informações dos clientes, com CPF, endereço, nome. 
+- **RF02- Cadastrar produtos:** O sistema deve permitir que haja o cadastro dos produtos com informações dos preços, quantidade e categoria. 
+- **RF03- Verificar o estoque:** O sistema deve notificar quando um produto chega a sua quantidade mínima. 
+- **RF04- Alterar produtos**- O sistema deve permitir a alteração de preços e quantidade dos produtos.
+- **RF05- Registrar comandas**- O sistema deve conter o registro de produtos em comandas.  
+- **RF06- Registrar vendas**- O sistema deve permitir que sejam geradas as informações da compra e recibos comprovados.  
+- **RF07**-
 ### 3.2 Requisitos Não Funcionais
-*Características de qualidade (ex.: desempenho, segurança, usabilidade, disponibilidade).*
+- **RFN01- Desempenho:** O sistema deve apresentar um tempo de resposta rápido e garantir que funcione sob uma larga escala de usuários dentro do sistema. 
+- **RFN02- Usabilidade:** O sistema deve garantir que sua interface seja clara e objetiva a quem utiliza.
+- **RFN03- Segurança:** O sistema deve garantir a criptografia das informações para proteger a privacidade dos consumidores. 
+- **RFN04- Portabilidade:** O sistema deve ser compatível aos navegador utilizado. 
+- **RFN05- Disponibilidade:** O sistema deve funcionar em horários comerciais e em caso de manutenções exibir informações prévias aos usuários. 
+- **RFN06- :**
 
 ---
 
