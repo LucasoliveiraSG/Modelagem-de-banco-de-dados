@@ -62,18 +62,103 @@
 ---
 
 ## 5. Dicionário de Dados Conceitual (Preliminar)
-*(vale 10% — Dimensão Procedimental - Segue o modelo do arquivo 02-03g_Exemplo_Dicionario_Dados.pdf)*
 
-Para cada entidade identificada, liste:
+Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informação.
+
+### [Link para visualização do site de dicionário de dados.](https://hilarious-gumdrop-9fbbc4.netlify.app)
+
+### Entidade: Funcionario
 
 | Atributo | Descrição | Regra de negócio associada |
-|----------|-----------|------------------------------|
-| *nome do atributo* | *o que ele representa* | *se houver alguma regra (obrigatoriedade, valores possíveis, etc.)* |
+| :--- | :--- | :--- |
+| id_funcionario | Identificador único do funcionário | Obrigatório, chave primária, gerado pelo sistema |
+| nome | Nome completo do funcionário | Obrigatório |
+| telefone | Telefone de contato do funcionário | Obrigatório; dado sensível, deve ser protegido |
+| data_nascimento | Data de nascimento do funcionário | Obrigatório; dado sensível, deve ser protegido |
+| CPF | Cadastro de Pessoa Física do funcionário | Obrigatório, único; dado sensível, deve ser protegido |
+| cargo | Cargo ou função exercida pelo funcionário | Obrigatório |
 
-*Mantenha o dicionário organizado e padronizado (mesmo formato de tabela para todas as entidades).*
+### Entidade: Cliente
 
-**Atenção à privacidade:** se forem usados exemplos de valores para ilustrar os atributos, esses exemplos devem ser **fictícios** — não utilize dados reais de clientes, fiéis, beneficiários, doadores ou funcionários da organização (nomes, CPFs, contatos etc.), mesmo que tenham sido observados durante a pesquisa de campo. Os exemplos devem apenas ser **coerentes com as operações reais** observadas.
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_cliente | Identificador único do cliente | Obrigatório, chave primária (PK), gerado pelo sistema |
+| nome | Nome completo do cliente | Obrigatório |
+| telefone | Telefone principal para contato | Obrigatório; dado sensível, deve ser protegido |
+| id_endereço | Identificador do endereço associado ao cliente | Obrigatório, chave estrangeira (FK) associada ao endereço |
+| CPF | Cadastro de Pessoa Física do cliente | Obrigatório, único; dado sensível, deve ser protegido |
 
+### Entidade: Endereco
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_endereco | Identificador único do endereço | Obrigatório, chave primária, gerado pelo sistema |
+| bairro | Nome do bairro | Obrigatório |
+| cep | Código de Endereçamento Postal | Obrigatório |
+| cidade | Nome da cidade | Obrigatório |
+
+### Entidade: Caixa
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_caixa | Identificador único do registro de caixa | Obrigatório, chave primária, gerado pelo sistema |
+| id_compra | Identificador da compra registrada no caixa | Obrigatório, chave estrangeira associada à compra |
+| id_funcionario | Identificador do funcionário responsável pelo caixa | Obrigatório, chave estrangeira associada ao funcionário |
+| hora_abertura | Data e hora de abertura do caixa | Obrigatório, gerado automaticamente |
+| hora_fechamento | Data e hora de fechamento do caixa | Preenchido no encerramento do expediente/turno |
+
+### Entidade: Pedido
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_pedido | Identificador único do pedido | Obrigatório, chave primária, gerado pelo sistema |
+| id_cliente | Identificador do cliente que realizou o pedido | Obrigatório, chave estrangeira associada ao cliente |
+| id_produto | Identificador do produto incluído no pedido | Obrigatório, chave estrangeira associada ao produto |
+| horario | Horário em que o pedido foi realizado | Obrigatório, gerado automaticamente |
+| id_comanda | Identificador da comanda associada ao pedido | Obrigatório, chave estrangeira associada à comanda |
+
+### Entidade: Produto
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_produto | Identificador único do produto | Obrigatório, chave primária, gerado pelo sistema |
+| nome_produto | Nome comercial do produto | Obrigatório |
+| preço | Valor unitário de venda do produto | Obrigatório, deve ser maior que zero |
+| categoria_produto | Identificador da categoria à qual o produto pertence | Obrigatório, chave estrangeira associada à categoria |
+
+### Entidade: Categoria
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| categoria_produto | Identificador único da categoria do produto | Obrigatório, chave primária, gerado pelo sistema |
+| descrição | descrição da categoria | Obrigatório |
+
+### Entidade: Estoque
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_estoque | Identificador único do registro de estoque | Obrigatório, chave primária, gerado pelo sistema |
+| id_produto | Identificador do produto movimentado no estoque | Obrigatório, chave estrangeira associada ao produto |
+| tipo_movimentacao | Tipo de movimentação realizada (ex: entrada ou saída) | Obrigatório |
+| data | Data em que a movimentação ocorreu | Obrigatório, gerado automaticamente |
+
+### Entidade: Comanda
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_comanda | Identificador único da comanda | Obrigatório, chave primária, gerado pelo sistema |
+| hora_abertura | Data e hora de abertura da comanda | Obrigatório, gerado automaticamente |
+| hora_fechamento | Data e hora de fechamento da comanda | Preenchido ao encerrar a conta/comanda |
+
+### Entidade: Compra
+
+| Atributo | Descrição | Regra de negócio associada |
+| :--- | :--- | :--- |
+| id_compra | Identificador único da compra/pagamento | Obrigatório, chave primária, gerado pelo sistema |
+| data_compra | Data de realização da compra | Obrigatório, gerado automaticamente |
+| id_comanda | Identificador da comanda paga na compra | Obrigatório, chave estrangeira associada à comanda |
+| valor_compra | Valor financeiro total da compra | Obrigatório, calculado a partir dos itens da comanda |
+| forma_pagamento | Método de pagamento utilizado (PIX, cartão, dinheiro, etc.) | Obrigatório |
 ---
 
 ## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
