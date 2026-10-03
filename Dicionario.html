@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-
+    <title>Dicionário de Dados - Padaria Forno Lusitano</title>
     <style>
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
         body{
             margin-top: 6rem;
             margin-left: 8px;
-            margin-right: 8px;
+            margin-right: 6px;
             padding: 0px;
+            background-color: #F2F2F2;
         }
         nav{
             position: fixed;
@@ -25,7 +28,7 @@
             width: 100%;
             height: 4rem;
             border-bottom: 2px solid rgb(124, 124, 124);
-            background-color: bisque;
+            background-color: #F2E6D8;
         }
         nav, ul{
             display: flex;
@@ -56,7 +59,6 @@
         }
         li, a:hover::after{
             width: 100%;
-
         }
         header{
             text-align: center;
@@ -64,35 +66,71 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 1.2rem;
         }
+        header p{
+            text-align: center;
+            width: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        header h4{
+            text-align: center;
+            background-color: rgb(245, 251, 255);
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            margin: auto;
+            max-width: 800px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgb(124, 124, 124);
+        }
+        .Tabela{
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid rgb(124, 124, 124);
+            border-left: 6px solid rgb(124, 124, 124);
+            margin: 0 auto 50px auto;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            width: 100%;
+            max-width: 1200px;
+            align-content: center;
+            overflow: hidden;
+        }
+        .Tabela:target {
+            animation: piscapisca 1.5s ease-out;
+        }
         .Topo{
             padding: 20px 10px 15px 20px;
-            border: 2px solid rgb(124, 124, 124);
+            background-color: #BF9B7A;
+            border-radius: 4px 8px 0px 0px;
             border-bottom: 2px solid rgb(124, 124, 124);
-            background-color: bisque;
-            border-radius: 10px 10px 0px 0px;
-            border-left: 3px solid black;
-            width: 100vh;
+            width: 100%;
         }
         h3, p{
             margin-left: 0.5rem;
             text-align: left;
+            font-size: 1.25rem;
+        }
+        h3{
+            margin-bottom: 0.5rem;
         }
         table {
-            width: 100vh;
-            border: 2px solid rgb(124, 124, 124);
+            width: 100%;
             border-top: 0px;
             border-collapse: collapse;
-            margin-bottom: 50px;
             margin-top: 0px;
-            border-left: 3px solid black;
-            border-radius: 0px 0px 10px 10px;
+        }
+        thead {
+            background-color: #F2E6D8;
+        }
+        tbody {
+            background-color: rgb(245, 251, 255);
         }
         td, th {
             text-align: left;
             border-bottom: 2px solid rgb(124, 124, 124);
             padding: 12px;
             text-align: left;
-            border-radius: 0px 0px 10px 10px;
             height: 30px;
         }
         tr, td {
@@ -100,6 +138,9 @@
             text-align: left;
             margin: 0px;
             height: 30px;
+        }
+        tr:last-child td {
+            border-bottom: none;
         }
         code {
             font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -115,182 +156,260 @@
             border: 2px groove #e1d7e7;
             box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 #e1d7e7;
         }
-
-
-
+        @keyframes piscapisca {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
+            30% {
+                box-shadow: 0 0 20px #D97B66;
+                border-left-color: #D97B66;
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+                border-left-color: rgb(124, 124, 124);
+            }
+        }
     </style>
 
 </head>
 <body>
     <nav>
         <ul>
+            <a href="#Funcionario"><li>Funcionário</li></a>
             <a href="#Cliente"><li>Cliente</li></a>
-            <a href="#Endereço"><li>Endereço</li></a>
+            <a href="#Endereco"><li>Endereço</li></a>
+            <a href="#Caixa"><li>Caixa</li></a>
             <a href="#Pedido"><li>Pedido</li></a>
             <a href="#Produto"><li>Produto</li></a>
             <a href="#Categoria"><li>Categoria</li></a>
+            <a href="#Estoque"><li>Estoque</li></a>
+            <a href="#Comanda"><li>Comanda</li></a>
             <a href="#Compra"><li>Compra</li></a>
         </ul>
     </nav>
     
     <main>
     <header>
-        <h1>Dicionario de dados - Padaria Luisitano</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio repellat culpa suscipit ab fuga recusandae voluptatibus voluptatem perferendis a animi tempora nihil quia et quas tempore architecto, perspiciatis amet ipsum.</p>
+        <h1>Dicionário de Dados - Padaria Forno Lusitano</h1>
+        <p>Dicionário de Dados conceitual (preliminar), com os atributos e as regras de negócio para o sistema da Padaria Forno Lusitano.</p>
         <h4>Lucas Oliveira, Carolina Ayumi, Vitoria christini, Lucas Morais</h4>
     </header>
 
-    <div class="Topo">
-    <h3 id="Cliente">Tabela: Cliente</h3><p>Essa tabela é para tal coisa balbalbal</p>
-    </div>
-    <div class="TableStyle">
-    <table>
-        <thead>
+    <section id="Funcionario" class="Tabela">
+        <div class="Topo">
+            <h3>Funcionário</h3>
+            <p>tabela de funcionários do local.</p>
+        </div>
+        
+        <table>
+            <thead>
             <tr>
-                <th>Variável</th>
-                <th>Nome variável</th>
-                <th>Tipo variável</th>
+                <th>Atributo</th>
                 <th>Descrição</th>
-                <th>Valores permitidos</th>
-                <th>Possui valores nulos?</th>
-                <th>Anotações</th>
+                <th>Regra de negócio associada.</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td><code>Id do cliente</code></td><td><code>id_cliente</code></td><td><code>Integer</code></td><td><code>Número de identificação</code></td><td><code>001-999</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Nome do cliente</code></td><td><code>nome</code></td><td><code>String</code></td><td><code>Nome do cliente</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Telefone</code></td><td><code>telefone</code></td><td><code>String</code></td><td><code>Número de telefone do cliente</code></td><td><code>11</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Endereço</code></td><td><code>id_endereço</code></td><td><code>Integer</code></td><td><code>ID do endereço do cliente</code></td><td><code>0001-999</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>CPF</code></td><td><code>CPF</code></td><td><code>Integer</code></td><td><code>CPF do cliente</code></td><td><code>11</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>id_funcionario</code></td><td><code>Identificador único do funcionário</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>nome</code></td><td><code>Nome completo do funcionário</code></td><td><code>Obrigatório</code></td></tr>
+            <tr><td><code>telefone</code></td><td><code>Telefone de contato do funcionário</code></td><td><code>Obrigatório; dado sensível, deve ser protegido</code></td></tr>
+            <tr><td><code>data_nascimento</code></td><td><code>Data de nascimento do funcionário</code></td><td><code>Obrigatório; dado sensível, deve ser protegido</code></td></tr>
+            <tr><td><code>CPF</code></td><td><code>Cadastro de Pessoa Física do funcionário</code></td><td><code>Obrigatório, único; dado sensível, deve ser protegido</code></td></tr>
+            <tr><td><code>cargo</code></td><td><code>Cargo ou função exercida pelo funcionário</code></td><td><code>Obrigatório</code></td></tr>
         </tbody>
-    </table>
-    </div>
-    <div class="Topo">
-    <h3 id="Endereço">Tabela: Endereço</h3><p>Essa tabela é para tal coisa balbalbal</p>
-    </div>
-    
-    <div class="TableStyle">
-    <table>
-        <thead>
+        </table>
+        </section>
+
+    <section id="Cliente" class="Tabela">
+        <div class="Topo">
+            <h3>Cliente</h3><p>tabela de cadastro do cliente.</p>
+        </div>
+        <table>
+            <thead>
             <tr>
-                <th>Variável</th>
-                <th>Nome variável</th>
-                <th>Tipo variável</th>
+                <th>Atributo</th>
                 <th>Descrição</th>
-                <th>Valores permitidos</th>
-                <th>Possui valores nulos?</th>
-                <th>Anotações</th>
+                <th>Regra de negócio associada</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td><code>Bairro</code></td><td><code>bairro</code></td><td><code>String</code></td><td><code>Bairro onde o cliente reside</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>CEP</code></td><td><code>cep</code></td><td><code>Integer</code></td><td><code>Código de Endereçamento Postal do cliente</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Cidade</code></td><td><code>cidade</code></td><td><code>String</code></td><td><code>Cidade onde o cliente reside</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>id_cliente</code></td><td><code>Identificador único do cliente</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>nome</code></td><td><code>Nome completo do cliente</code></td><td><code>Obrigatório</code></td></tr>
+            <tr><td><code>telefone</code></td><td><code>Telefone principal para contato</code></td><td><code>Obrigatório; dado sensível, deve ser protegido</code></td></tr>
+            <tr><td><code>id_endereço</code></td><td><code>Identificador do endereço associado ao cliente</code></td><td><code>Obrigatório, chave estrangeira associada ao endereço</code></td></tr>
+            <tr><td><code>CPF</code></td><td><code>Cadastro de Pessoa Física do cliente</code></td><td><code>Obrigatório, único; dado sensível, deve ser protegido</code></td></tr>
         </tbody>
-    </table>
-    </div>
+        </table>
+    </section>
 
-    <div class="Topo">
-    <h3 id="Produto">Tabela: Produto</h3><p>Essa tabela é para tal coisa balbalbal</p>
-    </div>
-    <div class="TableStyle">
-    <table>
-        <thead>
+    <section id="Endereco" class="Tabela">
+        <div class="Topo">
+            <h3>Endereço</h3><p>tabela de cadastro do endereço dos clientes.</p>
+        </div>
+        
+        <table>
+            <thead>
             <tr>
-                <th>Variável</th>
-                <th>Nome variável</th>
-                <th>Tipo variável</th>
+                <th>Atributo</th>
                 <th>Descrição</th>
-                <th>Valores permitidos</th>
-                <th>Possui valores nulos?</th>
-                <th>Anotações</th>
+                <th>Regra de negócio associada</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td><code>Nome do produto</code></td><td><code>nome_produto</code></td><td><code>Integer</code></td><td><code>Nome do produto</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Preço</code></td><td><code>preço</code></td><td><code>Float</code></td><td><code>Preço do produto</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Quantidade</code></td><td><code>quantidade</code></td><td><code>Integer</code></td><td><code>Quantidade do produto pedido</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>id_endereco</code></td><td><code>Identificador único do endereço</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>bairro</code></td><td><code>Nome do bairro</code></td><td><code>Obrigatório</code></td></tr>
+            <tr><td><code>cep</code></td><td><code>Código de Endereçamento Postal</code></td><td><code>Obrigatório</code></td></tr>
+            <tr><td><code>cidade</code></td><td><code>Nome da cidade</code></td><td><code>Obrigatório</code></td></tr>
         </tbody>
-    </table>
-    </div>
+        </table>
+    </section>
 
+    <section id="Caixa" class="Tabela">
     <div class="Topo">
-    <h3 id="Pedido">Tabela: Pedido</h3><p>Essa tabela é para tal coisa balbalbal</p>
-    </div>
-
-    <div class="TableStyle">
+    <h3>Caixa</h3><p>tabela de registro das operações financeiras do local.</p>
+    </div> 
     <table>
         <thead>
             <tr>
-                <th>Variável</th>
-                <th>Nome variável</th>
-                <th>Tipo variável</th>
+                <th>Atributo</th>
                 <th>Descrição</th>
-                <th>Valores permitidos</th>
-                <th>Possui valores nulos?</th>
-                <th>Anotações</th>
+                <th>Regra de negócio associada</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td><code>Id do pedido</code></td><td><code>id_pedido</code></td><td><code>Integer</code></td><td><code>Número de identificação do pedido</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Horário</code></td><td><code>horario</code></td><td><code>Time</code></td><td><code>Horário em que o pedido foi feito</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>id_caixa</code></td><td><code>Identificador único do registro de caixa</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>id_compra</code></td><td><code>Identificador da compra registrada no caixa</code></td><td><code>Obrigatório, chave estrangeira associada à compra</code></td></tr>
+            <tr><td><code>id_funcionario</code></td><td><code>Identificador do funcionário responsável pelo caixa</code></td><td><code>Obrigatório, chave estrangeira associada ao funcionário</code></td></tr>
+            <tr><td><code>hora_abertura</code></td><td><code>Data e hora de abertura do caixa</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+            <tr><td><code>hora_fechamento</code></td><td><code>Data e hora de fechamento do caixa</code></td><td><code>Preenchido no encerramento do expediente/turno</code></td></tr>
         </tbody>
     </table>
-    </div>
+    </section>
 
+    <section id="Pedido" class="Tabela">
     <div class="Topo">
-    <h3 id="Categoria">Tabela: Categoria</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    <h3>Pedido</h3><p>tabela de registro dos pedidos realizados pelos clientes.</p>
     </div>
-
-    <div class="TableStyle">
     <table>
         <thead>
             <tr>
-                <th>Variável</th>
-                <th>Nome variável</th>
-                <th>Tipo variável</th>
+                <th>Atributo</th>
                 <th>Descrição</th>
-                <th>Valores permitidos</th>
-                <th>Possui valores nulos?</th>
-                <th>Anotações</th>
+                <th>Regra de negócio associada</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td><code>Categoria do produto</code></td><td><code>categoria_produto</code></td><td><code>String</code></td><td><code>Categoria que o produto está</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Descrição</code></td><td><code>descrição</code></td><td><code>Text</code></td><td><code>Descrição da categoria</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
+            <tr><td><code>id_pedido</code></td><td><code>Identificador único do pedido</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>id_cliente</code></td><td><code>Identificador do cliente que realizou o pedido</code></td><td><code>Obrigatório, chave estrangeira associada ao cliente</code></td></tr>
+            <tr><td><code>id_produto</code></td><td><code>Identificador do produto incluído no pedido</code></td><td><code>Obrigatório, chave estrangeira associada ao produto</code></td></tr>
+            <tr><td><code>horario</code></td><td><code>Horário em que o pedido foi realizado</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+            <tr><td><code>id_comanda</code></td><td><code>Identificador da comanda associada ao pedido</code></td><td><code>Obrigatório, chave estrangeira associada à comanda</code></td></tr>
         </tbody>
     </table>
-    </div>
+    </section>
 
+    <section id="Produto" class="Tabela">
     <div class="Topo">
-    <h3 id="Compra">Tabela: Compra</h3><p>Essa tabela é para tal coisa balbalbal</p>
+    <h3>Produto</h3><p>tabela de cadastro dos produtos disponíveis.</p>
     </div>
-
-    <div class="TableStyle">
     <table>
         <thead>
             <tr>
-                <th>Variável</th>
-                <th>Nome variável</th>
-                <th>Tipo variável</th>
+                <th>Atributo</th>
                 <th>Descrição</th>
-                <th>Valores permitidos</th>
-                <th>Possui valores nulos?</th>
-                <th>Anotações</th>
+                <th>Regra de negócio associada</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td><code>Id da compra</code></td><td><code>id_compra</code></td><td><code>Integer</code></td><td><code>Número de identificação da compra</code></td><td><code>100</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Data da compra</code></td><td><code>data_compra</code></td><td><code>Date</code></td><td><code>Data em que a compra foi feita</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Número do cartão</code></td><td><code>numero cartao</code></td><td><code>Integer</code></td><td><code>Número do cartão usado na compra</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Vencimento do Cartão</code></td><td><code>venc_cartao</code></td><td><code>Integer</code></td><td><code>Vencimento do cartão usado na compra</code></td><td><code>40</code></td><td><code>Sim</code></td><td><code></code></td></tr>
-            <tr><td><code>Nome do cartão</code></td><td><code>nome cartao</code></td><td><code>Text</code></td><td><code>Nome do dono do cartão</code></td><td><code>40</code></td><td><code>Não</code></td><td><code></code></td></tr>
-            <tr><td><code>Código de segurança do cartão</code></td><td><code>codseg_cartao</code></td><td><code>Integer</code></td><td><code>Código de segurança no cartão</code></td><td><code>40</code></td><td><code>Sim</code></td><td><code></code></td></tr>
-            <tr><td><code>Tipo do cartão</code></td><td><code>tipo_cartao</code></td><td><code>Text</code></td><td><code>Tipo do cartão do cliente</code></td><td><code>40</code></td><td><code>Sim</code></td><td><code></code></td></tr>
+            <tr><td><code>id_produto</code></td><td><code>Identificador único do produto</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>nome_produto</code></td><td><code>Nome comercial do produto</code></td><td><code>Obrigatório</code></td></tr>
+            <tr><td><code>preço</code></td><td><code>Valor unitário de venda do produto</code></td><td><code>Obrigatório, deve ser maior que zero</code></td></tr>
+            <tr><td><code>categoria_produto</code></td><td><code>Identificador da categoria à qual o produto pertence</code></td><td><code>Obrigatório, chave estrangeira associada à categoria</code></td></tr>
         </tbody>
     </table>
-    </div>
+    </section>
 
+    <section id="Categoria" class="Tabela">
+    <div class="Topo">
+    <h3>Categoria</h3><p>tabela de cadastro das categorias de produtos.</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Regra de negócio associada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>categoria_produto</code></td><td><code>Identificador único da categoria do produto</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>descrição</code></td><td><code>descrição da categoria</code></td><td><code>Obrigatório</code></td></tr>
+        </tbody>
+    </table>
+    </section>
+
+    <section id="Estoque" class="Tabela">
+    <div class="Topo">
+    <h3>Estoque</h3><p>tabela de registro das movimentações de estoque.</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Regra de negócio associada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>id_estoque</code></td><td><code>Identificador único do registro de estoque</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>id_produto</code></td><td><code>Identificador do produto movimentado no estoque</code></td><td><code>Obrigatório, chave estrangeira associada ao produto</code></td></tr>
+            <tr><td><code>tipo_movimentacao</code></td><td><code>Tipo de movimentação realizada (ex: entrada ou saída)</code></td><td><code>Obrigatório</code></td></tr>
+            <tr><td><code>data</code></td><td><code>Data em que a movimentação ocorreu</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+        </tbody>
+    </table>
+    </section>
+
+    <section id="Comanda" class="Tabela">
+    <div class="Topo">
+    <h3>Comanda</h3><p>tabela de registro das comandas abertas pelos clientes.</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Regra de negócio associada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>id_comanda</code></td><td><code>Identificador único da comanda</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>hora_abertura</code></td><td><code>Data e hora de abertura da comanda</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+            <tr><td><code>hora_fechamento</code></td><td><code>Data e hora de fechamento da comanda</code></td><td><code>Preenchido ao encerrar a conta/comanda</code></td></tr>
+        </tbody>
+    </table>
+    </section>
+
+    <section id="Compra" class="Tabela">
+    <div class="Topo">
+    <h3>Compra</h3><p>tabela de registro das compras realizadas pelos clientes.</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Regra de negócio associada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>id_compra</code></td><td><code>Identificador único da compra/pagamento</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>data_compra</code></td><td><code>Data de realização da compra</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+            <tr><td><code>id_comanda</code></td><td><code>Identificador da comanda paga na compra</code></td><td><code>Obrigatório, chave estrangeira associada à comanda</code></td></tr>
+            <tr><td><code>valor_compra</code></td><td><code>Valor financeiro total da compra</code></td><td><code>Obrigatório, calculado a partir dos itens da comanda</code></td></tr>
+            <tr><td><code>forma_pagamento</code></td><td><code>Método de pagamento utilizado (PIX, cartão, dinheiro, etc.)</code></td><td><code>Obrigatório</code></td></tr>
+        </tbody>
+    </table>
+    </section>
     </main>
     
     <footer></footer>
