@@ -1,13 +1,6 @@
 # Entrega 1 — Modelo Conceitual (DER)
 ### Modelagem de um sistema de gestão de informações para uma organização de pequeno porte
 
-> Este arquivo é o esqueleto do **README.md** do repositório GitHub do seu grupo.
-> Preencha cada seção abaixo. Não apague os títulos — apenas substitua as instruções em *itálico* pelo conteúdo do seu projeto.
-> O **DER** é anexado separadamente ao repositório (em imagem), mas sua justificativa entra neste README.
->
-> **A organização escolhida pode ser de qualquer natureza:** empresa com fins lucrativos (livraria, lanchonete, pet shop), ONG, associação comunitária, cooperativa, instituições religiosas/comunitárias como igrejas, terreiros de religiões de matriz africana (candomblé, umbanda) ou outras. O que muda de um tipo para outro são os processos e as regras específicas — a estrutura do trabalho (levantamento de requisitos, modelagem conceitual, DER) é a mesma para todas. Termos como "empresa" e "negócio" usados abaixo devem ser lidos de forma ampla, no sentido técnico de modelagem de dados (ex.: "regras de negócio" = regras de funcionamento da organização, seja ela comercial, religiosa ou social).
->
-> **Importante:** a organização precisa **existir de fato** — não é permitido inventar uma organização fictícia. O levantamento de requisitos e regras de negócio deve ser feito por meio de **pesquisa de campo na própria organização** (visitas, entrevistas com responsáveis, observação dos processos reais), então o grupo só deve escolher uma organização à qual **realmente tenha acesso**. Ao escolher, tomem cuidado com o porte: **nem tão pequena** que não gere dados suficiente para o trabalho (poucos processos, poucas entidades), **nem tão grande/complexa** que fique inviável de modelar nesta primeira etapa do curso.
 
 ---
 
@@ -50,7 +43,6 @@
 ---
 
 ## 3. Requisitos do Sistema
-Nesta seção
 ### 3.1 Requisitos Funcionais
 - **RF01- Cadastrar o cliente:** O sistema deve permitir que haja o cadastro de informações dos clientes, com CPF, endereço, nome. 
 - **RF02- Cadastrar produtos:** O sistema deve permitir que haja o cadastro dos produtos com informações dos preços, quantidade e categoria. 
@@ -58,14 +50,13 @@ Nesta seção
 - **RF04- Alterar produtos**- O sistema deve permitir a alteração de preços e quantidade dos produtos.
 - **RF05- Registrar comandas**- O sistema deve conter o registro de produtos em comandas.  
 - **RF06- Registrar vendas**- O sistema deve permitir que sejam geradas as informações da compra e recibos comprovados.  
-- **RF07**-
+
 ### 3.2 Requisitos Não Funcionais
 - **RFN01- Desempenho:** O sistema deve apresentar um tempo de resposta rápido e garantir que funcione sob uma larga escala de usuários dentro do sistema. 
 - **RFN02- Usabilidade:** O sistema deve garantir que sua interface seja clara e objetiva a quem utiliza.
 - **RFN03- Segurança:** O sistema deve garantir a criptografia das informações para proteger a privacidade dos consumidores. 
 - **RFN04- Portabilidade:** O sistema deve ser compatível aos navegador utilizado. 
 - **RFN05- Disponibilidade:** O sistema deve funcionar em horários comerciais e em caso de manutenções exibir informações prévias aos usuários. 
-- **RFN06- :**
 
 ---
 
@@ -178,13 +169,18 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ---
 
 ## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
-*(vale 7,5% na dimensão conceitual)*
 
-- **Entidades reconhecidas:** *liste e justifique brevemente cada uma.*
-- **Atributos e classificações:** *quais atributos pertencem a cada entidade.*
-- **Relacionamentos pertinentes:** *como as entidades se conectam.*
-- **Restrições e políticas organizacionais aplicadas ao modelo.**
 
+
+- **cliente** - A pessoa que adquire os produtos ou serviços que são oferecidos pelo estabelecimento.
+- **funcionário** - Quem trabalha no estabelecimento e atende aos clientes, são responsáveis pelo registro das comandas e do caixa.
+- **caixa** - Recebe pagamentos, registra quem operou e confere tudo oque foi recebido no turno.
+- **comanda** - Registra oque foi consumido pelo cliente, a comanda é aberta na entrada e é mantida até o pagamento.
+- **compra** - Registro financeiro do consumo com o valor total, data de pagamento e forma de pagamento. 
+- **produto** - Item vendido pelo estabelecimento, possui preço, cadastro e categoria.
+- **categoria** - Classifica os produtos por tipo, como bebidas, sobremesas e salgados.
+- **estoque** - Controla a quantidade de produtos disponiveis, e alerta quando um atinge o número minimo.
+- **endereco** - Informações de localização de um cliente,sendo utilizado para entregas.
 ---
 
 ## 7. Diagrama Entidade-Relacionamento (DER)
