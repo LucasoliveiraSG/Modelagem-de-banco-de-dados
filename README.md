@@ -13,28 +13,24 @@
 
 ## Metadados
 
-- **Nomes dos alunos e RGM**
-- Carolina Ayumi Kawakami Faria - RGM: 47927470
-
-- Lucas Oliveira da Silva - RGM: 48323667
-
-- Lucas Silva de Morais - RGM: 48040843
-
-- Alex Christini dos Santos - RGM: 47919833
-
+| Nome do Aluno(a) | RGM |
+| :--- | :---: |
+|  *Carolina Ayumi Kawakami Faria*  | *47927470* |
+| *Lucas Oliveira da Silva* | *48323667* |
+| *Lucas Silva de Morais* | *48040843* |
+| *Alex Christini dos Santos* | *47919833* |
 
 ## 1. Caracterização da Organização
 
-
-- **Nome e natureza da organização:**
-  Padaria Forno Lusitano, organização com fins lucrativos.
-- **Contexto e porte:** Organização com fins lucrativos, de médio porte, recebe diariamente em torno de 500 clientes onde 350 consumem algo do estabelecimento.
-- **Problemas e necessidades identificados:** *qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros, etc.)?*
-- **Justificativa da escolha:** A padaria forno Lusitano se mostrou extremamente receptiva para a realização da pesquisa de campo, sua estrutura de porte médio é de tamanho ideal para a realização da modelagem de banco de dados. O responsável pelo estabelecimento, Severino, concordou em participar da entrevista pessoalmente e permitiu que o grupo coletasse as informações necessárias para fins acadêmicos. 
+- **Nome e natureza da organização:** O objeto de estudo selecionado para esta modelagem relacional é a **Forno Lusitano**, uma empresa de pequeno/médio porte pertencente ao setor de alimentação e gastronomia, operando sob o regime de fins lucrativos. Localizada estrategicamente no bairro Lajeado, a instituição acumula funções híbridas de panificadora, confeitaria e restaurante na modalidade de *self-service*. Para assegurar a eficiência no atendimento ao público, o estabelecimento possui o espaço físico compartimentado em setores funcionais bem delimitados, compreendendo: área de copa, balcão de bebidas, seção especializada de pães e doces, e o setor de laticínios e frios.
+- **Contexto e porte:** A operação comercial ocorre de forma intensiva e contínua, funcionando de segunda a segunda, das 07:00h às 22:00h. Para suportar essa jornada de alta demanda, a empresa conta com um quadro efetivo de 25 colaboradores distribuídos em turnos de revezamento. O fluxo de clientes é expressivo, registrando uma circulação diária estimada entre 500 pessoas, das quais aproximadamente 350 realizam consumo ou aquisição direta de produtos, gerando um volume considerável de transações diárias.
+- **Problemas e necessidades identificados:** Conforme levantamento realizado no local por meio de entrevista com o gerente operacional (Sr. Severino), a organização padece de limitações estruturais em seus fluxos de informação. O processo de atendimento utiliza primariamente comandas físicas para o registro de consumo, sendo os acertos consolidados e liquidados manualmente no caixa ao término do atendimento. A escassez crônica de mão de obra — evidenciada por jornadas exaustivas e momentos em que o próprio gerente precisa acumular funções de atendimento no balcão — resulta em forte gargalo operacional. A dependência de registros em papel e planilhas descentralizadas compromete a integridade e a rastreabilidade dos dados, abrindo margem para inconsistências no controle de estoque, dificuldades na apuração gerencial de faturamento e sobrecarga humana decorrente da ausência de automação transacional.
+- **Justificativa da escolha:** A Forno Lusitano revelou-se um caso de estudo ideal para a engenharia de dados devido à complexidade inerente ao seu modelo de negócio misto (varejo de balcão e serviço de alimentação). O ecossistema transacional — que envolve gestão de múltiplos setores de produtos, controle rigoroso de comandas individuais, fechamento de caixa e dimensionamento de fluxo de clientes — fornece a massa crítica e a diversidade relacional necessárias para justificar a construção de um banco de dados relacional robusto, escalável e normalizado.
 - **Evidências da organização:** 
 
   -  **Localização:** 
   Estr. do Lageado Velho, 1012 - Guaianases, São Paulo - SP, 08451-000
+  - **Fontes de Dados Primárias (Pesquisa de Campo):** Entrevista semiestruturada conduzida presencialmente com o gerente responsável, Sr. Severino.
   - **Telefone:** 
   (11) 91858-4285
   - **Instagram:**  https://www.instagram.com/padarialusitano/
