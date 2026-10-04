@@ -210,14 +210,14 @@ Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc
 
 | Item | O que registrar |
 |------|------------------|
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: pesquisa sobre o setor da organização, redação do README, organização dos requisitos, revisão ortográfica/gramatical). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente, e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: informação desatualizada, alucinação, generalização incorreta sobre o tipo de organização). |
+| **Ferramenta e etapa** | Claude (Anthropic), foi usada para correção do modelo lógico |
+| **Motivação** | O grupo buscou melhorar a qualidade do modelo lógico através da correção de possíveis inconsistências. |
+| **Prompt(s) utilizados** | "[Imagem do nosso diagrama] Verifique se esse modelo lógico apresenta as informações corretas, caso incorreta explique oque devemos alterar". |
+| **Resposta recebida** | Houveram algumas sugestões de melhoria envolvendo algumas entidades como Cliente, produto, caixa e compra. A IA também gerou uma imagem de um modelo lógico revisado. |
+| **Fontes consultadas e verificadas** | A IA não citou nenhuna fonte específica. |
+| **Trechos rejeitados ou corrigidos** | A IA sugeriu por unir as tabelas de caixa e compra, porem optamos por manter as tabelas separadas, ja que a função da tabela compra serve para armazenar informações sobre as compras realizadas por um cliente e o valor gasto. |
+| **Justificativa da escolha final** | Decidimos usar algumas mudanças propostas pela IA, mas mantivemos a estrutura original para garantir a integridade dos dados. |
+| **Reflexão crítica** | A IA atuou como um "par revisor" útil para sanar dúvidas pontuais sobre o modelo lógico. No entanto, restringimos seu uso no restante do projeto para evitar dependência tecnológica, garantindo o protagonismo do grupo e o desenvolvimento do nosso raciocínio analítico. |
 
 *Se o grupo não usou nenhuma ferramenta de IA, declare isso explicitamente nesta seção.*
 
