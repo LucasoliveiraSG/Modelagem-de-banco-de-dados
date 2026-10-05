@@ -226,9 +226,9 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ---
 
 ## 7. Diagrama Entidade-Relacionamento (DER).
-[DER conceitual.](DER_Conceitual.png)
+[DER conceitual.](DER_conceitual.png)
 
-<img width="500" height="350" alt="Image" src="DER_Conceitual.png"/>
+<img width="500" height="350" alt="Image" src="DER_conceitual.png"/>
 
 ---
 
