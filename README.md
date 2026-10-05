@@ -1,13 +1,6 @@
 # Entrega 1 — Modelo Conceitual (DER)
 ### Modelagem de um sistema de gestão de informações para uma organização de pequeno porte
 
-> Este arquivo é o esqueleto do **README.md** do repositório GitHub do seu grupo.
-> Preencha cada seção abaixo. Não apague os títulos — apenas substitua as instruções em *itálico* pelo conteúdo do seu projeto.
-> O **DER** é anexado separadamente ao repositório (em imagem), mas sua justificativa entra neste README.
->
-> **A organização escolhida pode ser de qualquer natureza:** empresa com fins lucrativos (livraria, lanchonete, pet shop), ONG, associação comunitária, cooperativa, instituições religiosas/comunitárias como igrejas, terreiros de religiões de matriz africana (candomblé, umbanda) ou outras. O que muda de um tipo para outro são os processos e as regras específicas — a estrutura do trabalho (levantamento de requisitos, modelagem conceitual, DER) é a mesma para todas. Termos como "empresa" e "negócio" usados abaixo devem ser lidos de forma ampla, no sentido técnico de modelagem de dados (ex.: "regras de negócio" = regras de funcionamento da organização, seja ela comercial, religiosa ou social).
->
-> **Importante:** a organização precisa **existir de fato** — não é permitido inventar uma organização fictícia. O levantamento de requisitos e regras de negócio deve ser feito por meio de **pesquisa de campo na própria organização** (visitas, entrevistas com responsáveis, observação dos processos reais), então o grupo só deve escolher uma organização à qual **realmente tenha acesso**. Ao escolher, tomem cuidado com o porte: **nem tão pequena** que não gere dados suficiente para o trabalho (poucos processos, poucas entidades), **nem tão grande/complexa** que fique inviável de modelar nesta primeira etapa do curso.
 
 ---
 
@@ -35,22 +28,37 @@
   (11) 91858-4285
   - **Instagram:**  https://www.instagram.com/padarialusitano/
   - **Registros da visita:**
-  - <img width="500" height="350" alt="Image" src="https://github.com/user-attachments/assets/87c7f6da-d2e8-4344-928c-506bfa7a1d4f" />
+  - [registro da visita.](comprovante_visita.jpeg)
 
 
 
 ---
 
 ## 2. Processos de Negócio
-*(vale 10% — Dimensão Procedimental)*
 
-- **Principais processos mapeados:** *ex.: cadastro de clientes/beneficiários/fiéis, controle de estoque ou doações, vendas ou arrecadação, emissão de pedidos ou solicitações, entregas ou distribuição, organização de eventos/rituais/mutirões.*
-- **Fluxogramas:** (Opcional) *represente visualmente pelo menos os processos-chave (imagens anexadas). Deve ficar claro o fluxo de cada processo e como eles se integram entre si.*
+Nesta seção, descrevem-se os principais fluxos operacionais mapeados na rotina da **Forno Lusitano**, os quais servem como base empírica para a modelagem relacional do banco de dados:
+
+1. **Atendimento e Gestão de Comanda:**
+   Processo central de atendimento no salão e balcão. Ao ingressar no estabelecimento, o cliente recebe uma comanda física numerada. A equipe de atendimento anota manualmente todos os itens consumidos (seja na seção de pães e doces, balcão de bebidas, frios ou restaurante *self-service*). A comanda atua como o documento transacional primário que acompanha o cliente até o acerto final.
+
+2. **Controle de Acesso pela Comanda:**
+   Mecanismo de controle físico e operacional que regula o fluxo de circulação. A comanda numerada serve como credencial de permanência no salão, sendo exigida obrigatoriamente para a liberação da saída do cliente nas catracas ou portas, atestando que o ciclo de atendimento foi devidamente finalizado.
+
+3. **Abertura e Operação do Caixa:**
+   Rotina financeira diária que compreende a inicialização do terminal com o fundo de troco, o registro contínuo das vendas e o fechamento/conciliação ao término do expediente. O operador de caixa recolhe a comanda física, valida os registros, calcula o montante devido e efetua a liquidação financeira (em dinheiro, cartão ou PIX), encerrando o ciclo de venda.
+
+4. **Cadastro de Produtos no Sistema:**
+   Processo administrativo e logístico para inserção e atualização do catálogo de mercadorias da padaria e restaurante. Cada item recebe uma descrição, categoria e um código de identificação, permitindo tanto a digitação manual quanto o escaneamento rápido no momento do registro do consumo.
+
+5. **Controle de Estoque:**
+   Rotina de gerenciamento e verificação periódica dos insumos e produtos prontos estocados nos diferentes setores (copa, bebidas, pães, doces e laticínios). O processo visa monitorar a disponibilidade de mercadorias para assegurar o abastecimento contínuo e evitar rupturas durante as 15 horas diárias de funcionamento (das 07:00h às 22:00h).
+
+6. **Cadastro de Clientes para Entregas:**
+   Processo voltado para o atendimento na modalidade de *delivery* ou encomendas externas. Quando o cliente solicita um pedido fora do salão, a equipe realiza o registro dos dados cadastrais essenciais: **nome, telefone de contato e endereço completo**, garantindo a rastreabilidade logística e o histórico de atendimento.
 
 ---
 
 ## 3. Requisitos do Sistema
-Nesta seção
 ### 3.1 Requisitos Funcionais
 - **RF01- Cadastrar o cliente:** O sistema deve permitir que haja o cadastro de informações dos clientes, com CPF, endereço, nome. 
 - **RF02- Cadastrar produtos:** O sistema deve permitir que haja o cadastro dos produtos com informações dos preços, quantidade e categoria. 
@@ -58,23 +66,29 @@ Nesta seção
 - **RF04- Alterar produtos**- O sistema deve permitir a alteração de preços e quantidade dos produtos.
 - **RF05- Registrar comandas**- O sistema deve conter o registro de produtos em comandas.  
 - **RF06- Registrar vendas**- O sistema deve permitir que sejam geradas as informações da compra e recibos comprovados.  
-- **RF07**-
+
 ### 3.2 Requisitos Não Funcionais
 - **RFN01- Desempenho:** O sistema deve apresentar um tempo de resposta rápido e garantir que funcione sob uma larga escala de usuários dentro do sistema. 
 - **RFN02- Usabilidade:** O sistema deve garantir que sua interface seja clara e objetiva a quem utiliza.
 - **RFN03- Segurança:** O sistema deve garantir a criptografia das informações para proteger a privacidade dos consumidores. 
 - **RFN04- Portabilidade:** O sistema deve ser compatível aos navegador utilizado. 
 - **RFN05- Disponibilidade:** O sistema deve funcionar em horários comerciais e em caso de manutenções exibir informações prévias aos usuários. 
-- **RFN06- :**
 
 ---
 
 ## 4. Regras de Negócio
-*(esta seção DIVIDE com a Seção 3 "Requisitos do Sistema" os mesmos 7,5% da dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na documentação. "Regras de negócio" é o termo técnico usado em modelagem de dados para as regras de funcionamento de qualquer organização, com ou sem fins lucrativos)*
 
-- **Regras operacionais:** *condições que a organização impõe (ex.: "um pedido só pode ser fechado se houver estoque disponível", "uma doação só pode ser registrada com identificação do doador", "um ritual só pode ser agendado se o espaço estiver disponível").*
-- **Restrições organizacionais:** *limitações que afetam o modelo (ex.: políticas internas, prazos, exigências legais, normas religiosas ou estatutárias) — e por que elas importam.*
+- **Regras operacionais:** 
 
+  - Um cliente só pode entrar no estabelecimento se estiver com a comanda em mãos, e só pode pagar a comanda no caixa.
+  - O caixa só pode ser aberto por um funcionário autorizado, e só pode ser fechado quando não houver nenhum cliente dentro da loja.
+  - Todas as comandas devem ser registradas no sistema, e só podem ser fechadas quando o cliente for pagar a comanda.
+  - Um produto só pode ser registrado no sistema se estiver cadastrado no estoque, e só pode ser vendido se houver quantidade suficiente em estoque.
+  - Uma comanda só pode ser liberada para um novo cliente após o pagamento total dos itens consumidos.
+- **Restrições organizacionais:** 
+
+  - Política de Controle de Acesso e Auditoria: O sistema deve implementar um mecanismo de autenticação robusto, garantindo que apenas funcionários autorizados possam acessar funcionalidades críticas, como abertura e fechamento de caixa, registro de vendas e alterações de estoque.
+  - Política de Liquidação Integral (Bloqueio de Reuso de Comanda): O sistema deve impedir que uma comanda seja reutilizada ou reaberta para um novo cliente até que o pagamento integral de todos os itens registrados tenha sido confirmado e processado, assegurando a integridade financeira das transações.
 ---
 
 ## 5. Dicionário de Dados Conceitual (Preliminar)
@@ -123,15 +137,14 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 | hora_abertura | Data e hora de abertura do caixa | Obrigatório, gerado automaticamente |
 | hora_fechamento | Data e hora de fechamento do caixa | Preenchido no encerramento do expediente/turno |
 
-### Entidade: Pedido
+### Entidade: pedido
 
 | Atributo | Descrição | Regra de negócio associada |
 | :--- | :--- | :--- |
-| id_pedido | Identificador único do pedido | Obrigatório, chave primária, gerado pelo sistema |
-| id_cliente | Identificador do cliente que realizou o pedido | Obrigatório, chave estrangeira associada ao cliente |
-| id_produto | Identificador do produto incluído no pedido | Obrigatório, chave estrangeira associada ao produto |
-| horario | Horário em que o pedido foi realizado | Obrigatório, gerado automaticamente |
-| id_comanda | Identificador da comanda associada ao pedido | Obrigatório, chave estrangeira associada à comanda |
+| id_pedido | Identificador único do item do pedido | Obrigatório, chave primária, gerado pelo sistema |
+| id_produto | Identificador do produto incluído no item do pedido | Obrigatório, chave estrangeira associada ao produto |
+| id_cliente | Identificador do cliente que fez o pedido | Obrigatório, chave estrangeira associada ao cliente |
+| horario | Horário do pedido | Obrigatório, gerado automaticamente |
 
 ### Entidade: Produto
 
@@ -163,6 +176,7 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 | Atributo | Descrição | Regra de negócio associada |
 | :--- | :--- | :--- |
 | id_comanda | Identificador único da comanda | Obrigatório, chave primária, gerado pelo sistema |
+| id_pedido | Identificador único do pedido | Obrigatório, chave estrangeira, gerado pelo sistema |
 | hora_abertura | Data e hora de abertura da comanda | Obrigatório, gerado automaticamente |
 | hora_fechamento | Data e hora de fechamento da comanda | Preenchido ao encerrar a conta/comanda |
 
@@ -178,68 +192,67 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ---
 
 ## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
-*(vale 7,5% na dimensão conceitual)*
 
-- **Entidades reconhecidas:** *liste e justifique brevemente cada uma.*
-- **Atributos e classificações:** *quais atributos pertencem a cada entidade.*
-- **Relacionamentos pertinentes:** *como as entidades se conectam.*
-- **Restrições e políticas organizacionais aplicadas ao modelo.**
+
+
+- **cliente** - A pessoa que adquire os produtos ou serviços que são oferecidos pelo estabelecimento.
+- **funcionário** - Quem trabalha no estabelecimento e atende aos clientes, são responsáveis pelo registro das comandas e do caixa.
+- **caixa** - Recebe pagamentos, registra quem operou e confere tudo oque foi recebido no turno.
+- **comanda** - Registra oque foi consumido pelo cliente, a comanda é aberta na entrada e é mantida até o pagamento.
+- **compra** - Registro financeiro do consumo com o valor total, data de pagamento e forma de pagamento. 
+- **produto** - Item vendido pelo estabelecimento, possui preço, cadastro e categoria.
+- **categoria** - Classifica os produtos por tipo, como bebidas, sobremesas e salgados.
+- **estoque** - Controla a quantidade de produtos disponiveis, e alerta quando um atinge o número minimo.
+- **endereco** - Informações de localização de um cliente,sendo utilizado para entregas.
+
+  ### **Relacionamentos pertinentes** 
+ - **pedido tem comanda** (1,N) - Todo pedido pertence a uma comanda(1,1),  e uma comanda pode ter vários pedidos (0,N).
+ - **funcionário registra comanda** (1,N) - Um funcionário pode registrar várias comandas (0,N), toda comanda e registrada por um funcionário (1,1)
+ 
+
+
+- ### **Restrições e políticas organizacionais aplicadas ao modelo.**
+   Apenas um funcionário pode operar o caixa por vez sendo obrigatório o registro do fechamento.
+
+  
+
 
 ---
 
-## 7. Diagrama Entidade-Relacionamento (DER)
-*(vale 20% — é o item de maior peso da entrega)*
+## 7. Diagrama Entidade-Relacionamento (DER).
+[DER conceitual.](DER_Conceitual.png)
 
-<<<<<<< Updated upstream
-- Anexe o DER (em imagem).
-- O diagrama deve representar corretamente:
-  - Entidades
-  - Atributos
-  - Relacionamentos
-  - **Cardinalidades**
-- O modelo deve ser **consistente** e já demonstrar potencial de **escalabilidade e integração** (pensando nas próximas etapas do projeto).
-=======
-[Link para visualização do (DER) Conceitual](DER_Conceitual.png)
->>>>>>> Stashed changes
+<img width="500" height="350" alt="Image" src="DER_Conceitual.png"/>
 
 ---
 
 ## 8. Justificativa Técnica
-*(vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)*
+A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houveram alterações em alguns campos como, separação e criação de entidades e adição de  atributos com intuito de promover melhorias ao sistema tornando o mais prático e robusto como por exemplo a separação entidades: caixa, compra e comanda.
 
-*Explique e defenda as decisões de abstração e modelagem tomadas: por que essas entidades, esses atributos, esses relacionamentos e essas cardinalidades — e não outras alternativas possíveis?*
+A entidade forte (independente) **caixa** foi criada com a função de registrar de forma separada todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e  registro da abertura e fechamento do caixa. 
 
----
+A entidade **compra** foi criada separadamente como forma de registrar o pagamento diferentemente do consumo que é registrado na entidade comanda, a compra só e gerada quando o cliente paga, armazenando os dados de valor, data e a forma que o pagamento foi feito.
+
+A entidade **comanda** foi criada separadamente como forma de registrar o consumo dos clientes, distringuindo-se do pagamento. a comanda é administrada pelos funcionários e possui status que identificam horario de abertura e fechamento como uma forma de controle.
+
 
 ## 9. Uso de Inteligência Artificial
-*(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)*
-
-Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.) em qualquer parte do trabalho, registre **para cada uso relevante**:
 
 | Item | O que registrar |
 |------|------------------|
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: pesquisa sobre o setor da organização, redação do README, organização dos requisitos, revisão ortográfica/gramatical). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente, e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: informação desatualizada, alucinação, generalização incorreta sobre o tipo de organização). |
+| **Ferramenta e etapa** | Claude (Anthropic), foi usada para correção do modelo conceitual |
+| **Motivação** | O grupo buscou melhorar a qualidade do modelo conceitual através da correção de possíveis inconsistências. |
+| **Prompt(s) utilizados** | "[Imagem do nosso diagrama] Verifique se esse modelo conceitual apresenta as informações corretas, caso incorreta explique oque devemos alterar". |
+| **Resposta recebida** | Houveram algumas sugestões de melhoria envolvendo algumas entidades como Cliente, produto, caixa e compra. A IA também gerou uma imagem de um modelo conceitual revisado. |
+| **Fontes consultadas e verificadas** | A IA não citou nenhuna fonte específica. |
+| **Trechos rejeitados ou corrigidos** | A IA sugeriu por unir as tabelas de caixa e compra, porem optamos por manter as tabelas separadas, ja que a função da tabela compra serve para armazenar informações sobre as compras realizadas por um cliente e o valor gasto. |
+| **Justificativa da escolha final** | Decidimos usar algumas mudanças propostas pela IA, mas mantivemos a estrutura original para garantir a integridade dos dados. |
+| **Reflexão crítica** | A IA atuou como um "par revisor" útil para sanar dúvidas pontuais sobre o modelo conceitual. No entanto, restringimos seu uso no restante do projeto para evitar dependência tecnológica, garantindo o protagonismo do grupo e o desenvolvimento do nosso raciocínio analítico. |
 
-*Se o grupo não usou nenhuma ferramenta de IA, declare isso explicitamente nesta seção.*
-
----
-
-## Critérios Atitudinais (20%)
-**Estes critérios NÃO constam explicitamente como item de entrega no README.** Eles são avaliados por meio de **Avaliação 360º entre os integrantes do grupo** (cada membro avalia os colegas de equipe) e, no caso da Colaboração, também pela **colaboração equilibrada no histórico de commits** do repositório GitHub — não pela leitura do restante do repositório nem pela apresentação:
-
-- **Participação (5%):** envolvimento nas discussões técnicas e nas decisões do grupo.
-- **Comprometimento (5%):** cumprimento de prazos e responsabilidades assumidas.
-- **Colaboração (5%):** respeito às contribuições dos colegas, cooperação na construção do projeto e colaboração equilibrada no histórico de commits do repositório GitHub.
-- **Autonomia (5%):** busca independente de soluções e proposta de melhorias.
 
 ---
+
+
 
 ## Resumo dos Pesos
 
