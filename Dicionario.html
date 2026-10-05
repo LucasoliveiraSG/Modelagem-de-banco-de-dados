@@ -179,7 +179,7 @@
             <a href="#Cliente"><li>Cliente</li></a>
             <a href="#Endereco"><li>Endereço</li></a>
             <a href="#Caixa"><li>Caixa</li></a>
-            <a href="#pedido"><li>Pedido</li></a>
+            <a href="#Pedido"><li>Pedido</li></a>
             <a href="#Produto"><li>Produto</li></a>
             <a href="#Categoria"><li>Categoria</li></a>
             <a href="#Estoque"><li>Estoque</li></a>
@@ -286,9 +286,9 @@
     </table>
     </section>
 
-    <section id="Pedido" class="Tabela">
+    <section id="Item_comanda" class="Tabela">
     <div class="Topo">
-    <h3>Pedido</h3><p>tabela de registro dos pedidos realizados pelos clientes.</p>
+    <h3>Item_comanda</h3><p>tabela de registro dos itens incluídos nas comandas.</p>
     </div>
     <table>
         <thead>
@@ -300,9 +300,10 @@
         </thead>
         <tbody>
             <tr><td><code>id_pedido</code></td><td><code>Identificador único do pedido</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>id_cliente</code></td><td><code>Identificador do cliente que realizou o pedido</code></td><td><code>Obrigatório, chave estrangeira associada ao cliente</code></td></tr>
             <tr><td><code>id_produto</code></td><td><code>Identificador do produto incluído no pedido</code></td><td><code>Obrigatório, chave estrangeira associada ao produto</code></td></tr>
-            <tr><td><code>id_cliente</code></td><td><code>Identificador do cliente que fez o pedido</code></td><td><code>Obrigatório, chave estrangeira associada ao cliente</code></td></tr>
-            <tr><td><code>horario</code></td><td><code>Horário do pedido</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+            <tr><td><code>horario</code></td><td><code>Horário em que o pedido foi realizado</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+            <tr><td><code>id_comanda</code></td><td><code>Identificador da comanda associada ao pedido</code></td><td><code>Obrigatório, chave estrangeira associada à comanda</code></td></tr>
         </tbody>
     </table>
     </section>

@@ -56,6 +56,26 @@ Nesta seção, descrevem-se os principais fluxos operacionais mapeados na rotina
 6. **Cadastro de Clientes para Entregas:**
    Processo voltado para o atendimento na modalidade de *delivery* ou encomendas externas. Quando o cliente solicita um pedido fora do salão, a equipe realiza o registro dos dados cadastrais essenciais: **nome, telefone de contato e endereço completo**, garantindo a rastreabilidade logística e o histórico de atendimento.
 
+Nesta seção, descrevem-se os principais fluxos operacionais mapeados na rotina da **Forno Lusitano**, os quais servem como base empírica para a modelagem relacional do banco de dados:
+
+1. **Atendimento e Gestão de Comanda:**
+   Processo central de atendimento no salão e balcão. Ao ingressar no estabelecimento, o cliente recebe uma comanda física numerada. A equipe de atendimento anota manualmente todos os itens consumidos (seja na seção de pães e doces, balcão de bebidas, frios ou restaurante *self-service*). A comanda atua como o documento transacional primário que acompanha o cliente até o acerto final.
+
+2. **Controle de Acesso pela Comanda:**
+   Mecanismo de controle físico e operacional que regula o fluxo de circulação. A comanda numerada serve como credencial de permanência no salão, sendo exigida obrigatoriamente para a liberação da saída do cliente nas catracas ou portas, atestando que o ciclo de atendimento foi devidamente finalizado.
+
+3. **Abertura e Operação do Caixa:**
+   Rotina financeira diária que compreende a inicialização do terminal com o fundo de troco, o registro contínuo das vendas e o fechamento/conciliação ao término do expediente. O operador de caixa recolhe a comanda física, valida os registros, calcula o montante devido e efetua a liquidação financeira (em dinheiro, cartão ou PIX), encerrando o ciclo de venda.
+
+4. **Cadastro de Produtos no Sistema:**
+   Processo administrativo e logístico para inserção e atualização do catálogo de mercadorias da padaria e restaurante. Cada item recebe uma descrição, categoria e um código de identificação, permitindo tanto a digitação manual quanto o escaneamento rápido no momento do registro do consumo.
+
+5. **Controle de Estoque:**
+   Rotina de gerenciamento e verificação periódica dos insumos e produtos prontos estocados nos diferentes setores (copa, bebidas, pães, doces e laticínios). O processo visa monitorar a disponibilidade de mercadorias para assegurar o abastecimento contínuo e evitar rupturas durante as 15 horas diárias de funcionamento (das 07:00h às 22:00h).
+
+6. **Cadastro de Clientes para Entregas:**
+   Processo voltado para o atendimento na modalidade de *delivery* ou encomendas externas. Quando o cliente solicita um pedido fora do salão, a equipe realiza o registro dos dados cadastrais essenciais: **nome, telefone de contato e endereço completo**, garantindo a rastreabilidade logística e o histórico de atendimento.
+
 ---
 
 ## 3. Requisitos do Sistema
@@ -67,6 +87,7 @@ Nesta seção, descrevem-se os principais fluxos operacionais mapeados na rotina
 - **RF05- Registrar comandas**- O sistema deve conter o registro de produtos em comandas.  
 - **RF06- Registrar vendas**- O sistema deve permitir que sejam geradas as informações da compra e recibos comprovados.  
 
+
 ### 3.2 Requisitos Não Funcionais
 - **RFN01- Desempenho:** O sistema deve apresentar um tempo de resposta rápido e garantir que funcione sob uma larga escala de usuários dentro do sistema. 
 - **RFN02- Usabilidade:** O sistema deve garantir que sua interface seja clara e objetiva a quem utiliza.
@@ -77,6 +98,18 @@ Nesta seção, descrevem-se os principais fluxos operacionais mapeados na rotina
 ---
 
 ## 4. Regras de Negócio
+
+- **Regras operacionais:** 
+
+  - Um cliente só pode entrar no estabelecimento se estiver com a comanda em mãos, e só pode pagar a comanda no caixa.
+  - O caixa só pode ser aberto por um funcionário autorizado, e só pode ser fechado quando não houver nenhum cliente dentro da loja.
+  - Todas as comandas devem ser registradas no sistema, e só podem ser fechadas quando o cliente for pagar a comanda.
+  - Um produto só pode ser registrado no sistema se estiver cadastrado no estoque, e só pode ser vendido se houver quantidade suficiente em estoque.
+  - Uma comanda só pode ser liberada para um novo cliente após o pagamento total dos itens consumidos.
+- **Restrições organizacionais:** 
+
+  - Política de Controle de Acesso e Auditoria: O sistema deve implementar um mecanismo de autenticação robusto, garantindo que apenas funcionários autorizados possam acessar funcionalidades críticas, como abertura e fechamento de caixa, registro de vendas e alterações de estoque.
+  - Política de Liquidação Integral (Bloqueio de Reuso de Comanda): O sistema deve impedir que uma comanda seja reutilizada ou reaberta para um novo cliente até que o pagamento integral de todos os itens registrados tenha sido confirmado e processado, assegurando a integridade financeira das transações.
 
 - **Regras operacionais:** 
 
@@ -227,6 +260,14 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ---
 
 ## 8. Justificativa Técnica
+A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houveram alterações em alguns campos como, separação e criação de entidades e adição de  atributos com intuito de promover melhorias ao sistema tornando o mais prático e robusto como por exemplo a separação entidades: caixa, compra e comanda.
+
+A entidade forte (independente) **caixa** foi criada com a função de registrar de forma separada todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e  registro da abertura e fechamento do caixa. 
+
+A entidade **compra** foi criada separadamente como forma de registrar o pagamento diferentemente do consumo que é registrado na entidade comanda, a compra só e gerada quando o cliente paga, armazenando os dados de valor, data e a forma que o pagamento foi feito.
+
+A entidade **comanda** foi criada separadamente como forma de registrar o consumo dos clientes, distringuindo-se do pagamento. a comanda é administrada pelos funcionários e possui status que identificam horario de abertura e fechamento como uma forma de controle.
+
 A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houveram alterações em alguns campos como, separação e criação de entidades e adição de  atributos com intuito de promover melhorias ao sistema tornando o mais prático e robusto como por exemplo a separação entidades: caixa, compra e comanda.
 
 A entidade forte (independente) **caixa** foi criada com a função de registrar de forma separada todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e  registro da abertura e fechamento do caixa. 
