@@ -72,7 +72,7 @@ Nesta seção, descrevem-se os principais fluxos operacionais mapeados na rotina
 - **RFN01- Desempenho:** O sistema deve apresentar um tempo de resposta rápido e garantir que funcione sob uma larga escala de usuários dentro do sistema. 
 - **RFN02- Usabilidade:** O sistema deve garantir que sua interface seja clara e objetiva a quem utiliza.
 - **RFN03- Segurança:** O sistema deve garantir a criptografia das informações para proteger a privacidade dos consumidores. 
-- **RFN04- Portabilidade:** O sistema deve ser compatível aos navegador utilizado. 
+- **RFN04- Portabilidade:** O sistema deve ser compatível com o navegador utilizado. 
 - **RFN05- Disponibilidade:** O sistema deve funcionar em horários comerciais e em caso de manutenções exibir informações prévias aos usuários. 
 
 ---
@@ -235,7 +235,7 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ## 8. Justificativa Técnica
 
 
-- A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houve alterações em alguns campos como, a separação e criação de entidades e adição de atributos com o intuito de promover melhorias ao sistema tornando-o mais prático e robusto ,como por exemplo a separação dasentidades: caixa, compra e comanda.
+- A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houve alterações em alguns campos como, a separação e criação de entidades e adição de atributos com o intuito de promover melhorias ao sistema tornando-o mais prático e robusto ,como por exemplo a separação das entidades: caixa, compra e comanda.
 - A entidade caixa foi criada com a função de registrar ,de forma separada, todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e registro da abertura e do fechamento do caixa. A relação entre funcionário e caixa (1:N) ocorre pelo fato de que o caixa só pode ser operado por uma pessoa, porém, um funcionário pode operar vários caixas ao longo do tempo.
 
 - A entidade compra foi criada separadamente como forma de registrar o pagamento diferenciando-se do consumo que é registrado na entidade comanda. A compra só é gerada quando o cliente paga, armazenando os dados de valor, data e a forma que o pagamento foi feito. A relação entre caixa e compra (0,N) ocorre pelo fato de que ao iniciar o expediente, o caixa possui 0 compras, porém ao decorrer do dia vários clientes podem fazer compras naquele caixa.
