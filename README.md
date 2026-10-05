@@ -144,6 +144,7 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 | :--- | :--- | :--- |
 | id_pedido | Identificador único do item do pedido | Obrigatório, chave primária, gerado pelo sistema |
 | id_produto | Identificador do produto incluído no item do pedido | Obrigatório, chave estrangeira associada ao produto |
+| id_comanda | Identificador da comanda à qual o item pertence | Obrigatório, chave estrangeira associada à comanda |
 | id_cliente | Identificador do cliente que fez o pedido | Obrigatório, chave estrangeira associada ao cliente |
 | horario | Horário do pedido | Obrigatório, gerado automaticamente |
 
@@ -177,7 +178,6 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 | Atributo | Descrição | Regra de negócio associada |
 | :--- | :--- | :--- |
 | id_comanda | Identificador único da comanda | Obrigatório, chave primária, gerado pelo sistema |
-| id_pedido | Identificador único do pedido | Obrigatório, chave estrangeira, gerado pelo sistema |
 | hora_abertura | Data e hora de abertura da comanda | Obrigatório, gerado automaticamente |
 | hora_fechamento | Data e hora de fechamento da comanda | Preenchido ao encerrar a conta/comanda |
 
