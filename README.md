@@ -210,7 +210,7 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 - Os atributos e classificações são apresentados detalhadamente na seção 5 intitulada 'Dicionário de Dados', que inclui descrições e regras de negócio associadas a cada atributo.
 
   ### **Relacionamentos pertinentes** 
-- Um endereço pode conter vários clientes (1:N) e um cliente pode realizar vários pedidos (1:N); cada pedido pode conter vários produtos (1:N). Cada produto classifica-se em apenas uma categoria (1:N) e possui controle de movimentação no estoque (N:M). Os pedidos são agrupados em comandas (N:M) registradas por funcionários (N:M), e geram compras (N:M). As compras registram os valores da comanda e finalizam a movimentação no caixa (1:M), no qual o fechamento do caixa é de responsabilidade estrita de um funcionário (1:1).
+- Um endereço pode conter vários clientes (1:N) e um cliente pode realizar vários pedidos (1:N); cada pedido pode conter vários produtos (N:M). Cada produto classifica-se em apenas uma categoria (1:N) e possui controle de movimentação no estoque (N:M). Os pedidos são agrupados em comandas (N:M) registradas por funcionários (N:M), e geram compras (N:M). As compras registram os valores da comanda e finalizam a movimentação no caixa (1:M), no qual o fechamento do caixa é de responsabilidade estrita de um funcionário (1:1).
 
 
 
@@ -258,15 +258,3 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 
 
 ---
-
-
-
-## Resumo dos Pesos
-
-| Dimensão | Peso total |
-|----------|-----------|
-| Conceitual (contexto, requisitos/regras, modelagem, justificativa técnica) | 30% |
-| Procedimental (requisitos, fluxogramas, dicionário de dados, DER) | 50% |
-| Atitudinal (participação, comprometimento, colaboração, autonomia) | 20% |
-
-**Entrega final:** README.md completo + DER + Dicionário de Dados em HTML (com exceção dos cursos GTI) anexado no repositório GitHub do grupo.
