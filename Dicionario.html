@@ -179,7 +179,7 @@
             <a href="#Cliente"><li>Cliente</li></a>
             <a href="#Endereco"><li>Endereço</li></a>
             <a href="#Caixa"><li>Caixa</li></a>
-            <a href="#Item_comanda"><li>Item_comanda</li></a>
+            <a href="#Pedido"><li>Pedido</li></a>
             <a href="#Produto"><li>Produto</li></a>
             <a href="#Categoria"><li>Categoria</li></a>
             <a href="#Estoque"><li>Estoque</li></a>
@@ -299,10 +299,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td><code>id_item_comanda</code></td><td><code>Identificador único do item da comanda</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
-            <tr><td><code>id_comanda</code></td><td><code>Identificador da comanda à qual o item pertence</code></td><td><code>Obrigatório, chave estrangeira associada à comanda</code></td></tr>
-            <tr><td><code>preço_unitario</code></td><td><code>Preço unitário do produto incluído no item da comanda</code></td><td><code>Obrigatório, deve ser maior que zero</code></td></tr>
-            <tr><td><code>quantidade</code></td><td><code>Quantidade do produto incluído no item da comanda</code></td><td><code>Obrigatório, deve ser maior que zero</code></td></tr>
+            <tr><td><code>id_pedido</code></td><td><code>Identificador único do pedido</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>id_cliente</code></td><td><code>Identificador do cliente que realizou o pedido</code></td><td><code>Obrigatório, chave estrangeira associada ao cliente</code></td></tr>
+            <tr><td><code>id_produto</code></td><td><code>Identificador do produto incluído no pedido</code></td><td><code>Obrigatório, chave estrangeira associada ao produto</code></td></tr>
+            <tr><td><code>horario</code></td><td><code>Horário em que o pedido foi realizado</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
+            <tr><td><code>id_comanda</code></td><td><code>Identificador da comanda associada ao pedido</code></td><td><code>Obrigatório, chave estrangeira associada à comanda</code></td></tr>
         </tbody>
     </table>
     </section>
@@ -382,6 +383,7 @@
         </thead>
         <tbody>
             <tr><td><code>id_comanda</code></td><td><code>Identificador único da comanda</code></td><td><code>Obrigatório, chave primária, gerado pelo sistema</code></td></tr>
+            <tr><td><code>id_pedido</code></td><td><code>Identificador único do pedido</code></td><td><code>Obrigatório, chave estrangeira, gerado pelo sistema</code></td></tr>
             <tr><td><code>hora_abertura</code></td><td><code>Data e hora de abertura da comanda</code></td><td><code>Obrigatório, gerado automaticamente</code></td></tr>
             <tr><td><code>hora_fechamento</code></td><td><code>Data e hora de fechamento da comanda</code></td><td><code>Preenchido ao encerrar a conta/comanda</code></td></tr>
         </tbody>
