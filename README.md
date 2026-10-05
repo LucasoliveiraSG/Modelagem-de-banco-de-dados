@@ -190,6 +190,7 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ## 7. Diagrama Entidade-Relacionamento (DER)
 *(vale 20% — é o item de maior peso da entrega)*
 
+<<<<<<< Updated upstream
 - Anexe o DER (em imagem).
 - O diagrama deve representar corretamente:
   - Entidades
@@ -197,6 +198,9 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
   - Relacionamentos
   - **Cardinalidades**
 - O modelo deve ser **consistente** e já demonstrar potencial de **escalabilidade e integração** (pensando nas próximas etapas do projeto).
+=======
+[Link para visualização do (DER) Conceitual](DER_Conceitual.png)
+>>>>>>> Stashed changes
 
 ---
 
