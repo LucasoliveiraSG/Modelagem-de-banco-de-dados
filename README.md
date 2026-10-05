@@ -70,11 +70,18 @@ Nesta seção
 ---
 
 ## 4. Regras de Negócio
-*(esta seção DIVIDE com a Seção 3 "Requisitos do Sistema" os mesmos 7,5% da dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na documentação. "Regras de negócio" é o termo técnico usado em modelagem de dados para as regras de funcionamento de qualquer organização, com ou sem fins lucrativos)*
 
-- **Regras operacionais:** *condições que a organização impõe (ex.: "um pedido só pode ser fechado se houver estoque disponível", "uma doação só pode ser registrada com identificação do doador", "um ritual só pode ser agendado se o espaço estiver disponível").*
-- **Restrições organizacionais:** *limitações que afetam o modelo (ex.: políticas internas, prazos, exigências legais, normas religiosas ou estatutárias) — e por que elas importam.*
+- **Regras operacionais:** 
 
+  - Um cliente só pode entrar no estabelecimento se estiver com a comanda em mãos, e só pode pagar a comanda no caixa.
+  - O caixa só pode ser aberto por um funcionário autorizado, e só pode ser fechado quando não houver nenhum cliente dentro da loja.
+  - Todas as comandas devem ser registradas no sistema, e só podem ser fechadas quando o cliente for pagar a comanda.
+  - Um produto só pode ser registrado no sistema se estiver cadastrado no estoque, e só pode ser vendido se houver quantidade suficiente em estoque.
+  - Uma comanda só pode ser liberada para um novo cliente após o pagamento total dos itens consumidos.
+- **Restrições organizacionais:** 
+
+  - Política de Controle de Acesso e Auditoria: O sistema deve implementar um mecanismo de autenticação robusto, garantindo que apenas funcionários autorizados possam acessar funcionalidades críticas, como abertura e fechamento de caixa, registro de vendas e alterações de estoque.
+  - Política de Liquidação Integral (Bloqueio de Reuso de Comanda): O sistema deve impedir que uma comanda seja reutilizada ou reaberta para um novo cliente até que o pagamento integral de todos os itens registrados tenha sido confirmado e processado, assegurando a integridade financeira das transações.
 ---
 
 ## 5. Dicionário de Dados Conceitual (Preliminar)
@@ -123,15 +130,14 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 | hora_abertura | Data e hora de abertura do caixa | Obrigatório, gerado automaticamente |
 | hora_fechamento | Data e hora de fechamento do caixa | Preenchido no encerramento do expediente/turno |
 
-### Entidade: Pedido
+### Entidade: item_comanda
 
 | Atributo | Descrição | Regra de negócio associada |
 | :--- | :--- | :--- |
-| id_pedido | Identificador único do pedido | Obrigatório, chave primária, gerado pelo sistema |
-| id_cliente | Identificador do cliente que realizou o pedido | Obrigatório, chave estrangeira associada ao cliente |
-| id_produto | Identificador do produto incluído no pedido | Obrigatório, chave estrangeira associada ao produto |
-| horario | Horário em que o pedido foi realizado | Obrigatório, gerado automaticamente |
-| id_comanda | Identificador da comanda associada ao pedido | Obrigatório, chave estrangeira associada à comanda |
+| id_item_comanda | Identificador único do item da comanda | Obrigatório, chave primária, gerado pelo sistema |
+| id_comanda | Identificador da comanda à qual o item pertence | Obrigatório, chave estrangeira associada à comanda |
+| preço_unitario | Preço unitário do produto incluído no item da comanda | Obrigatório, deve ser maior que zero |
+| quantidade | Quantidade do produto incluído no item da comanda | Obrigatório, deve ser maior que zero |
 
 ### Entidade: Produto
 
@@ -188,15 +194,8 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ---
 
 ## 7. Diagrama Entidade-Relacionamento (DER)
-*(vale 20% — é o item de maior peso da entrega)*
 
-- Anexe o DER (em imagem).
-- O diagrama deve representar corretamente:
-  - Entidades
-  - Atributos
-  - Relacionamentos
-  - **Cardinalidades**
-- O modelo deve ser **consistente** e já demonstrar potencial de **escalabilidade e integração** (pensando nas próximas etapas do projeto).
+[Link para visualização do (DER) Lógico](DER_Lógico.png)
 
 ---
 
@@ -208,9 +207,6 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ---
 
 ## 9. Uso de Inteligência Artificial
-*(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)*
-
-Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.) em qualquer parte do trabalho, registre **para cada uso relevante**:
 
 | Item | O que registrar |
 |------|------------------|
@@ -223,19 +219,10 @@ Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc
 | **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
 | **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: informação desatualizada, alucinação, generalização incorreta sobre o tipo de organização). |
 
-*Se o grupo não usou nenhuma ferramenta de IA, declare isso explicitamente nesta seção.*
 
 ---
 
-## Critérios Atitudinais (20%)
-**Estes critérios NÃO constam explicitamente como item de entrega no README.** Eles são avaliados por meio de **Avaliação 360º entre os integrantes do grupo** (cada membro avalia os colegas de equipe) e, no caso da Colaboração, também pela **colaboração equilibrada no histórico de commits** do repositório GitHub — não pela leitura do restante do repositório nem pela apresentação:
 
-- **Participação (5%):** envolvimento nas discussões técnicas e nas decisões do grupo.
-- **Comprometimento (5%):** cumprimento de prazos e responsabilidades assumidas.
-- **Colaboração (5%):** respeito às contribuições dos colegas, cooperação na construção do projeto e colaboração equilibrada no histórico de commits do repositório GitHub.
-- **Autonomia (5%):** busca independente de soluções e proposta de melhorias.
-
----
 
 ## Resumo dos Pesos
 
