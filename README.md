@@ -110,25 +110,13 @@ Nesta seção, descrevem-se os principais fluxos operacionais mapeados na rotina
 
   - Política de Controle de Acesso e Auditoria: O sistema deve implementar um mecanismo de autenticação robusto, garantindo que apenas funcionários autorizados possam acessar funcionalidades críticas, como abertura e fechamento de caixa, registro de vendas e alterações de estoque.
   - Política de Liquidação Integral (Bloqueio de Reuso de Comanda): O sistema deve impedir que uma comanda seja reutilizada ou reaberta para um novo cliente até que o pagamento integral de todos os itens registrados tenha sido confirmado e processado, assegurando a integridade financeira das transações.
-
-- **Regras operacionais:** 
-
-  - Um cliente só pode entrar no estabelecimento se estiver com a comanda em mãos, e só pode pagar a comanda no caixa.
-  - O caixa só pode ser aberto por um funcionário autorizado, e só pode ser fechado quando não houver nenhum cliente dentro da loja.
-  - Todas as comandas devem ser registradas no sistema, e só podem ser fechadas quando o cliente for pagar a comanda.
-  - Um produto só pode ser registrado no sistema se estiver cadastrado no estoque, e só pode ser vendido se houver quantidade suficiente em estoque.
-  - Uma comanda só pode ser liberada para um novo cliente após o pagamento total dos itens consumidos.
-- **Restrições organizacionais:** 
-
-  - Política de Controle de Acesso e Auditoria: O sistema deve implementar um mecanismo de autenticação robusto, garantindo que apenas funcionários autorizados possam acessar funcionalidades críticas, como abertura e fechamento de caixa, registro de vendas e alterações de estoque.
-  - Política de Liquidação Integral (Bloqueio de Reuso de Comanda): O sistema deve impedir que uma comanda seja reutilizada ou reaberta para um novo cliente até que o pagamento integral de todos os itens registrados tenha sido confirmado e processado, assegurando a integridade financeira das transações.
 ---
 
 ## 5. Dicionário de Dados Conceitual (Preliminar)
 
 Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informação.
 
-### [Link para visualização do site de dicionário de dados.](https://hilarious-gumdrop-9fbbc4.netlify.app)
+### [Link para visualização do HTML do dicionário de dados.](dicionario.html)
 
 ### Entidade: Funcionario
 
