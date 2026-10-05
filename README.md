@@ -99,6 +99,19 @@ Para cada entidade identificada, liste:
 - **categoria** - Classifica os produtos por tipo, como bebidas, sobremesas e salgados.
 - **estoque** - Controla a quantidade de produtos disponiveis, e alerta quando um atinge o número minimo.
 - **endereco** - Informações de localização de um cliente,sendo utilizado para entregas.
+
+  ### **Relacionamentos pertinentes** 
+ - **pedido tem comanda** (1,N) - Todo pedido pertence a uma comanda(1,1),  e uma comanda pode ter vários pedidos (0,N).
+ - **funcionário registra comanda** (1,N) - Um funcionário pode registrar várias comandas (0,N), toda comanda e registrada por um funcionário (1,1)
+ 
+
+
+- ### **Restrições e políticas organizacionais aplicadas ao modelo.**
+   Apenas um funcionário pode operar o caixa por vez sendo obrigatório o registro do fechamento.
+
+  
+
+
 ---
 
 ## 7. Diagrama Entidade-Relacionamento (DER)
@@ -115,11 +128,14 @@ Para cada entidade identificada, liste:
 ---
 
 ## 8. Justificativa Técnica
-*(vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)*
+A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houveram alterações em alguns campos como, separação e criação de entidades e adição de  atributos com intuito de promover melhorias ao sistema tornando o mais prático e robusto como por exemplo a separação entidades: caixa, compra e comanda.
 
-*Explique e defenda as decisões de abstração e modelagem tomadas: por que essas entidades, esses atributos, esses relacionamentos e essas cardinalidades — e não outras alternativas possíveis?*
+A entidade forte (independente) **caixa** foi criada com a função de registrar de forma separada todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e  registro da abertura e fechamento do caixa. 
 
----
+A entidade **compra** foi criada separadamente como forma de registrar o pagamento diferentemente do consumo que é registrado na entidade comanda, a compra só e gerada quando o cliente paga, armazenando os dados de valor, data e a forma que o pagamento foi feito.
+
+A entidade **comanda** foi criada separadamente como forma de registrar o consumo dos clientes, distringuindo-se do pagamento. a comanda é administrada pelos funcionários e possui status que identificam horario de abertura e fechamento como uma forma de controle.
+
 
 ## 9. Uso de Inteligência Artificial
 *(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)*
