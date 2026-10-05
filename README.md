@@ -238,14 +238,19 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 - **estoque** - Controla a quantidade de produtos disponiveis, e alerta quando um atinge o número minimo.
 - **endereco** - Informações de localização de um cliente,sendo utilizado para entregas.
 
+ ### **Atributos e classificações:** 
+- Os atributos e classificações são apresentados detalhadamente na seção 5 intitulada 'Dicionário de Dados', que inclui descrições e regras de negócio associadas a cada atributo.
+
   ### **Relacionamentos pertinentes** 
- - **pedido tem comanda** (1,N) - Todo pedido pertence a uma comanda(1,1),  e uma comanda pode ter vários pedidos (0,N).
- - **funcionário registra comanda** (1,N) - Um funcionário pode registrar várias comandas (0,N), toda comanda e registrada por um funcionário (1,1)
- 
+- Um endereço pode conter vários clientes (1:N) e um cliente pode realizar vários pedidos (1:N); cada pedido pode conter vários produtos (1:N). Cada produto classifica-se em apenas uma categoria (1:N) e possui controle de movimentação no estoque (N:M). Os pedidos são agrupados em comandas (N:M) registradas por funcionários (N:M), e geram compras (N:M). As compras registram os valores da comanda e finalizam a movimentação no caixa (1:M), no qual o fechamento do caixa é de responsabilidade estrita de um funcionário (1:1).
 
 
-- ### **Restrições e políticas organizacionais aplicadas ao modelo.**
-   Apenas um funcionário pode operar o caixa por vez sendo obrigatório o registro do fechamento.
+
+
+
+  ### **Restrições e políticas organizacionais aplicadas ao modelo.**
+  - o modelo aplica travas de governança que exigem a identificação do funcionário responsável tanto pela abertura quanto pelo fechamento do caixa, impedindo o encerramento do turno enquanto houver comandas com hora_fechamento em aberto. A integridade referencial entre produto e estoque é garantida por meio de chaves estrangeiras, assegurando que apenas produtos previamente cadastrados possam ser movimentados no estoque, e também ele veda a comercialização de produtos com o saldo negativo.
+
 
   
 
@@ -260,13 +265,15 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 ---
 
 ## 8. Justificativa Técnica
-A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houveram alterações em alguns campos como, separação e criação de entidades e adição de  atributos com intuito de promover melhorias ao sistema tornando o mais prático e robusto como por exemplo a separação entidades: caixa, compra e comanda.
 
-A entidade forte (independente) **caixa** foi criada com a função de registrar de forma separada todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e  registro da abertura e fechamento do caixa. 
 
-A entidade **compra** foi criada separadamente como forma de registrar o pagamento diferentemente do consumo que é registrado na entidade comanda, a compra só e gerada quando o cliente paga, armazenando os dados de valor, data e a forma que o pagamento foi feito.
+- A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houve alterações em alguns campos como, a separação e criação de entidades e adição de atributos com o intuito de promover melhorias ao sistema tornando-o mais prático e robusto ,como por exemplo a separação dasentidades: caixa, compra e comanda.
+- A entidade caixa foi criada com a função de registrar ,de forma separada, todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e registro da abertura e do fechamento do caixa. A relação entre funcionário e caixa (1:N) ocorre pelo fato de que o caixa só pode ser operado por uma pessoa, porém, um funcionário pode operar vários caixas ao longo do tempo.
 
-A entidade **comanda** foi criada separadamente como forma de registrar o consumo dos clientes, distringuindo-se do pagamento. a comanda é administrada pelos funcionários e possui status que identificam horario de abertura e fechamento como uma forma de controle.
+- A entidade compra foi criada separadamente como forma de registrar o pagamento diferenciando-se do consumo que é registrado na entidade comanda. A compra só é gerada quando o cliente paga, armazenando os dados de valor, data e a forma que o pagamento foi feito. A relação entre caixa e compra (0,N) ocorre pelo fato de que ao iniciar o expediente, o caixa possui 0 compras, porém ao decorrer do dia vários clientes podem fazer compras naquele caixa.
+- A entidade comanda foi criada separadamente como forma de registrar o consumo dos clientes, distinguindo-se do pagamento, a comanda é administrada pelos funcionários e possui status que identificam os horários de abertura e fechamento como uma forma de controle. A relação comanda e pedido (1:N) ocorre pelo fato de que uma comanda reúne vários pedidos e cada pedido pertence exclusivamente a uma comanda. 
+
+
 
 A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houveram alterações em alguns campos como, separação e criação de entidades e adição de  atributos com intuito de promover melhorias ao sistema tornando o mais prático e robusto como por exemplo a separação entidades: caixa, compra e comanda.
 
