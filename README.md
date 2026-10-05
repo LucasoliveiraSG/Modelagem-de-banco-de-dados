@@ -275,15 +275,6 @@ Os exemplos de valores são fictícios, apenas para ilustrar o tipo de informaç
 
 
 
-A criação das entidades, atributos e demais características foram designadas a partir do mapeamento dos processos que ocorrem na Padaria Forno Lusitano. Houveram alterações em alguns campos como, separação e criação de entidades e adição de  atributos com intuito de promover melhorias ao sistema tornando o mais prático e robusto como por exemplo a separação entidades: caixa, compra e comanda.
-
-A entidade forte (independente) **caixa** foi criada com a função de registrar de forma separada todo o lucro que o estabelecimento obteve no turno, com informações de quem foi o responsável por recebê-lo (ID do funcionário), as formas de pagamento utilizadas e  registro da abertura e fechamento do caixa. 
-
-A entidade **compra** foi criada separadamente como forma de registrar o pagamento diferentemente do consumo que é registrado na entidade comanda, a compra só e gerada quando o cliente paga, armazenando os dados de valor, data e a forma que o pagamento foi feito.
-
-A entidade **comanda** foi criada separadamente como forma de registrar o consumo dos clientes, distringuindo-se do pagamento. a comanda é administrada pelos funcionários e possui status que identificam horario de abertura e fechamento como uma forma de controle.
-
-
 ## 9. Uso de Inteligência Artificial
 
 | Item | O que registrar |
